@@ -1,0 +1,6 @@
+en:
+  tasks:
+    prev_task: "prev task"
+    next_task: "next task"
+    index:
+       new_task: "new task"

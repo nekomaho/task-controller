@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-10"><h3>Task Manager</h3></div>
+      <div class="col-md-1">
+        <%= link_to t(".new_task"), {:controller => :tasks, :action => :new}, :class => "btn btn-primary btn-sm active pull-right", remote: true %>
+      </div>
+      <div class="col-md-1">
+        <%= link_to  t("default.back"), root_url, :class => "btn-default btn btn-sm pull-right"%>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-hover table-responsive table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%=t "activerecord.attributes.task.name" %></th>
+          <th><%=t "activerecord.attributes.task.days" %></th>
+          <th><%=t "tasks.prev_task"%></th>
+          <th><%=t "tasks.next_task"%></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.id, controller: "tasks",action: "show", id: task, remote: true  =%></td>
+          <td><%= task.name =%></td>
+          <td><%= task.days =%></td>
+          <td><%= render "add_prev_relation", {task: task} %>
+              <%= render "show_prev_relation", {task: task} %></td>
+          <td><%= render "add_next_relation", {task: task} %>
+              <%= render "show_next_relation", {task: task} %></td>
+          <td><%= link_to t("default.edit"), controller: "tasks",action: "edit", id: task, remote: true  =%>
+          <%= link_to t("default.delete"), task, method: :delete, data: { confirm: t("default.delete_confirm") } =%>
+        </tr>
+        <tr>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="task-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

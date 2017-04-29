@@ -1,0 +1,6 @@
+<ul>
+  <% task.next_tasks.each do |next_task| %>
+    <li><%= link_to next_task.name,task_path(next_task), remote: true %>:
+        <%= link_to t("default.delete"),next_task_relationship_path(id: task.id,:delete_id=>next_task.id),:method=>:delete %></li>
+  <% end %>
+</ul>

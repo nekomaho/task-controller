@@ -1,0 +1,7 @@
+ja:
+  project:
+    index:
+       project_manager: "Project Manager"
+       new_project: "新しいプロジェクト"
+       project_name: "プロジェクト名"
+       task_list: "[タスク一覧]"

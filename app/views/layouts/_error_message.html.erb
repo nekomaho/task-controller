@@ -1,0 +1,12 @@
+<% if form.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+       <%= t 'default.error_message', count: form.errors.count %>
+    </div>
+    <ul>
+    <% form.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
