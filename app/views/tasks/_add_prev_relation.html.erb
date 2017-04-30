@@ -1,0 +1,7 @@
+<%= form_tag('/prev_task_relationships',:method => :post, remote: true) do  %>
+  <% if task.candidate_task.present? %>
+    <div><%= hidden_field_tag :next_task, task.id %></div>
+    <%= collection_select :prev_task, :id, task.candidate_task, :id, :name %>
+    <%= submit_tag t("default.add"),class: "btn btn-xs btn-primary" %>
+  <% end %>
+<% end %>

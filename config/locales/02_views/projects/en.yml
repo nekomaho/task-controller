@@ -1,0 +1,7 @@
+en:
+  project:
+    index:
+       project_manager: "Project Manager"
+       new_project: "new project"
+       project_name: "Project Name"
+       task_list: "[task list]"

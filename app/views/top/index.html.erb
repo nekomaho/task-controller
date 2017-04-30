@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Task Controller</h1>
+
+    <h2>
+      <%= t ".description_message" %>
+    </h2>
+
+    <% unless user_signed_in? %>
+      <%= link_to t(".signup_now"), new_user_registration_path, class: "btn btn-lg btn-default" %>
+    <% end %>
+  </div>
+</div>
+<% if user_signed_in? %>
+  <div class="container" id="projects">
+  </div>
+<% end %>
+<div id="project-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -1,0 +1,33 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+      <%= render 'layouts/error_message', { form: @task} %>
+      <% if @task.id.present? %>
+        <h4 class="modal-title"><%= t("default.update")+":"+@task.name %></h4>
+      <% else %>
+        <h4 class="modal-title"><%= t("tasks.index.new_task") %></h4>
+      <% end %>
+    </div>
+    <%= form_for(@task,url: polymorphic_path([@project,@task]), remote: true) do |f|  %>
+    <div class="modal-body">
+      <div class="form-group">
+        <%= f.label :name%>
+        <%= f.text_field :name, class: 'form-control',placeholder: "task name"%>
+      </div>
+      <div class="form-group">
+          <%= f.label :memo%>
+          <%= f.text_area :memo, class: 'form-control',placeholder: "memo"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :days %>
+        <%= f.number_field :days, class: 'form-control',in: 0..10000%>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit t("default.submit") %>
+      <%= button_tag t("default.cancel"), {'type' => 'button','data-dismiss' => 'modal' } %>
+      <% end %>
+    </div>
+  </div>
+</div>

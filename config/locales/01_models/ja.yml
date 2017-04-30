@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      project:
+        name: 題名
+        memo: 備考
+      task:
+        name: 題名
+        memo: 備考
+        days: 日数

@@ -1,0 +1,22 @@
+#.rubocop.yml
+require: rubocop-rspec
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Rails:
+    Enabled: true
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'Gemfile'
+    - 'Guardfile'
+Style/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'

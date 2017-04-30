@@ -1,0 +1,60 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  default:
+    edit: "[edit]"
+    delete: "[delete]"
+    delete_confirm: "Are you sure?"
+    submit: "submit"
+    cancel: "cancel"
+    close: "close"
+    update: "update"
+    value: "value"
+    add: "add"
+    back: "back"
+    home: "Home"
+    help: "Help"
+    Logout: "Logout"
+    Login: "Login"
+    Signup: "Signup"
+    error_message: "The form contains %{count} error"
+  device_custom:
+    login: "Log in"
+    signup: "Sign up"
+    forgot_password: "Forgot your password?"
+    dont_recv_confirm: "Didn't receive confirmation instructions?"
+    minimum: "characters minimum"
+    resend_confirm: "Resend confirmation instructions"
+    resend_password: "Send me reset password instructions"
+    change_password: "Change your password"
+    change_password_register: "Change my password"
+    new_password: "new password"
+    confirm_new_password: "Confirm new password"
+    mail:
+      wellcom: "Wellcom"
+      wellcom_message: "You can confirm your account email through the link below:"
+      wellcom_confirm: "Confirm my account"
+      hello: "hello"
+      password_change_message: "We're contacting you to notify you that your password has been changed."
+      change_password_message: "Someone has requested a link to change your password. You can do this through the link below."
+      change_password: "Change my password"
+      change_password_confirm_html: "<p>If you didn't request this, please ignore this email.</p><p>Your password won't change until you access the link above and create a new one.</p>"
