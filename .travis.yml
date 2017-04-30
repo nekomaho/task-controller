@@ -1,7 +1,9 @@
 language: ruby
 rvm:
   - 2.4.1
-bundler_args: --jobs=2
 script:  bundle exec rspec
+addons:
+  code_climate:
+    repo_token: 9dcf3cb34405d850d431cb0f8b5499a6201135e873b423c600c001044fd24d8e
 before_script:
   - "RAILS_ENV=test bundle exec rake db:create db:migrate"
