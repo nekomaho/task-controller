@@ -32,7 +32,7 @@ ja:
       wellcom: "ようこそ"
       wellcom_message: "下記のリンクをクリックしてユーザ登録確認を行って下さい"
       wellcom_confirm: "ユーザ登録確認"
-      hello: "こんにちわ"
+      hello: "こんにちは"
       password_change_message: "あなたのパスワードが変更されたことをお知らせします"
       change_password_message: "誰かがあなたのパスワードを変更しようとしています。覚えがある場合は下記リンクからパスワードを変更する事が出来ます。"
       change_password: "パスワードの変更"
