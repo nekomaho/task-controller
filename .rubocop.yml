@@ -15,7 +15,7 @@ AllCops:
     - !ruby/regexp /old_and_unused\.rb$/
     - 'Gemfile'
     - 'Guardfile'
-Style/BlockLength:
+Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
     - '**/*.rake'

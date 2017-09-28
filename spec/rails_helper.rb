@@ -58,6 +58,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include Devise::Test::IntegrationHelpers
   config.include Devise::Test::ControllerHelpers, type: :controller
+  # use anonymous controllers for concern test
+  config.infer_base_class_for_anonymous_controllers = false
 end
 
 Shoulda::Matchers.configure do |config|
