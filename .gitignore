@@ -22,3 +22,6 @@
 /vendor/bundle
 /vendor/rspec
 /coverage
+
+# Ignore ctags file
+tags
