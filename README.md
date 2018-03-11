@@ -6,7 +6,7 @@ Task Controller is task managed system that easy to control.
 [![Test Coverage](https://codeclimate.com/github/nekomaho/task-controller/badges/coverage.svg)](https://codeclimate.com/github/nekomaho/task-controller/coverage)
 
 ## Dependencies
-Before you start you should have a working installation of Ruby versions 2.4.1 . You should also have PostgreSQL installed.
+Before you start you should have a working installation of Ruby versions 2.5.0 . You should also have PostgreSQL installed.
 
 ## Using this Application Right Now
 you want to run the application as it is right now, you can:
