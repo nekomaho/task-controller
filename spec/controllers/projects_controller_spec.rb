@@ -7,7 +7,7 @@ RSpec.describe ProjectsController, type: :controller do
   end
   describe 'GET #new' do
     before do
-      xhr :get, :new
+      get :new, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -19,7 +19,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     before do
       sign_in User.find(project.user_id)
-      xhr :get, :show, id: project
+      get :show, params: { id: project }, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -28,7 +28,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe 'GET #index' do
     before do
-      xhr :get, :index
+      get :index, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -39,11 +39,11 @@ RSpec.describe ProjectsController, type: :controller do
     let(:input) { FactoryGirl.attributes_for(:project) }
 
     before do
-      xhr :get, :new
+      get :new, xhr: true
     end
     it 'save the new task in the database' do
       expect do
-        xhr :post, :create, params: { project: input }
+        post :create, params: { project: input }, xhr: true
       end.to change(Project, :count).by(1)
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     before do
       sign_in User.find(update_project.user_id)
-      xhr :get, :edit, id: update_project
+      get :edit, params: { id: update_project }, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -65,12 +65,12 @@ RSpec.describe ProjectsController, type: :controller do
 
     before do
       sign_in User.find(update_project.user_id)
-      xhr :get, :new, id: update_project
+      get :new, params: { id: update_project }, xhr: true
     end
     context 'validation sucess' do
       before do
         patch_input = { name: 'Sample', memo: 'one' }
-        xhr :patch, :update, id: update_project, project: patch_input
+        patch :update, params: { id: update_project, project: patch_input }, xhr: true
         update_project.reload
       end
       it 'update name coloumn in the database' do
@@ -87,7 +87,7 @@ RSpec.describe ProjectsController, type: :controller do
     context 'validation failure' do
       before do
         patch_input = { name: '', memo: 'one' }
-        xhr :patch, :update, id: update_project, project: patch_input
+        patch :update, params: { id: update_project, project: patch_input }, xhr: true
         update_project.reload
       end
       it 'not update name coloumn in the database' do
@@ -107,11 +107,11 @@ RSpec.describe ProjectsController, type: :controller do
 
     before do
       sign_in User.find(delete_project.user_id)
-      xhr :get, :new, id: delete_project
+      get :new, params: { id: delete_project }, xhr: true
     end
     it 'delete from the database' do
       expect do
-        xhr :delete, :destroy, id: delete_project
+        delete :destroy, params: { id: delete_project }, xhr: true
       end.to change(Project, :count).by(-1)
     end
   end

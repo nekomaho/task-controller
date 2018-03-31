@@ -6,7 +6,7 @@ RSpec.describe TasksController, type: :controller do
 
     before do
       sign_in User.find(project.user_id)
-      xhr :get, :new, params: { project_id: project.id }
+      get :new, params: { project_id: project.id }, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -19,7 +19,7 @@ RSpec.describe TasksController, type: :controller do
 
     before do
       sign_in User.find(project.user_id)
-      xhr :get, :show, id: task
+      get :show, params: { id: task }, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -32,7 +32,7 @@ RSpec.describe TasksController, type: :controller do
 
     before do
       sign_in User.find(project.user_id)
-      get :index, project_id: project.id
+      get :index, params: { project_id: project.id }
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -45,7 +45,7 @@ RSpec.describe TasksController, type: :controller do
     before do
       project = Project.find(update_task.project_id)
       sign_in User.find(project.user_id)
-      xhr :get, :edit, id: update_task
+      get :edit, params: { id: update_task }, xhr: true
     end
     it 'get status 200' do
       expect(response).to have_http_status 200
@@ -76,7 +76,7 @@ RSpec.describe TasksController, type: :controller do
     context 'update success' do
       before do
         task_parameter = { name: 'Neko', memo: 'hoge', days: 5 }
-        xhr :patch, :update, id: update_task, task: task_parameter
+        patch :update, params: { id: update_task, task: task_parameter }, xhr: true
         update_task.reload
       end
       it 'update name coloumn in the database' do
@@ -96,7 +96,7 @@ RSpec.describe TasksController, type: :controller do
     context 'update failure' do
       before do
         task_parameter = { name: '', memo: 'hoge', days: 5 }
-        xhr :patch, :update, id: update_task, task: task_parameter
+        patch :update, params: { id: update_task, task: task_parameter }, xhr: true
         update_task.reload
       end
       it 'not update name coloumn in the database' do
@@ -120,7 +120,7 @@ RSpec.describe TasksController, type: :controller do
     it 'delete from the database' do
       project = Project.find(delete_task.project_id)
       sign_in User.find(project.user_id)
-      expect { delete :destroy, id: delete_task }.to change(Task, :count).by(-1)
+      expect { delete :destroy, params: { id: delete_task } }.to change(Task, :count).by(-1)
     end
   end
 end
